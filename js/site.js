@@ -7,7 +7,8 @@ let basebody_content = document.getElementById("body"),
     content6 = ["ConmicCon","California","San Diego", 150000,"06/01/2019"],
     content7 = ["HeroesCon","North Carolina","Charlotte", 45000,"06/01/2018"],
     content8 = ["HeroesCon","North Carolina","Charlotte", 50000,"06/01/2019"];
-var data_array = [content1,content2,content3,content4,content5,content6,content7,content8];
+
+let data_array = [content1,content2,content3,content4,content5,content6,content7,content8];
 for (i=0; i < data_array.length; i++){
   basebody_content.innerHTML += `<tr><th scope="row">${i+1}</th><td>${data_array[i][0]}</td><td>${data_array[i][1]}</td><td>${data_array[i][2]}</td><td>${data_array[i][3]}</td><td>${data_array[i][4]}</td></tr>`
   
@@ -18,11 +19,11 @@ function submit(){
       state_name = document.getElementById("state").value,
       city_name1 = document.getElementById("city").value,
       attendance = parseInt(document.getElementById("attendance").value),
-      date1 = document.getElementById("date").value,
+      date1 = document.getElementById("event_date").value,
       body1 = document.getElementById("body");
   data_array += [event_name,state_name,city_name1,attendance,date1]
-  body1.innerHTML += `<tr><th scope="row">${data_array.length}</th><td>${event_name}</td><td>${state_name}</td><td>${city_name1}</td><td>${attendance}</td><td>${data1}</td></tr>`
-  localStorage("data",data_array);
+  body1.innerHTML += `<tr><th scope="row">${data_array.length}</th><td>${event_name}</td><td>${state_name}</td><td>${city_name1}</td><td>${attendance}</td><td>${date1}</td></tr>`;
+  localStorage.setItem("data",data_array);
   Swal.fire({
     position: 'center',
     icon: 'success',
